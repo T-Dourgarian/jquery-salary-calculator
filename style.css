@@ -79,6 +79,12 @@ td {
     height:80%;
 }
 
+img {
+    height:15px;
+    width:15px;
+    background-color: transparent;
+}
+
 .deleteTd {
     padding: 0%;
     text-align: center;

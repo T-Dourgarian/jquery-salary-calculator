@@ -6,6 +6,7 @@ function readyNow() {
     $("#submitBtn").on("click", addEmployee);
     $("tbody").on("click", ".deleteBtn", deleteEmployee);
     $("body").on("mouseover", "#submitBtn", borderToWhite);
+
 }
 
 
@@ -27,7 +28,7 @@ function addEmployee() {
         try {
             yearlyCost += Number(salaryEl.val());
         } catch(error) {
-            
+
         }
         switchRowColor();
         
@@ -37,7 +38,7 @@ function addEmployee() {
             <td>${lastEl.val()}</td>
             <td>${idEl.val()}</td>
             <td>${titleEl.val()}</td>
-            <td id="annualSalary">${salaryEl.val()}</td>
+            <td id="annualSalary">${accounting.formatMoney(salaryEl.val())}</td>
             <td class="deleteTd"><button class="deleteBtn">Delete</button></td>
         </tr>`
         );
@@ -49,13 +50,12 @@ function addEmployee() {
         // salaryEl.val("");
     //}
 
-
-
     checkMonthly(yearlyCost);
 }
 
 function deleteEmployee() {
-    let employeeSalary = Number($(this).closest("tr").find("#annualSalary").text());
+    let employeeSalary = accounting.unformat($(this).closest("tr").find("#annualSalary").text());
+    console.log(employeeSalary);
     yearlyCost -= employeeSalary;
     checkMonthly(yearlyCost)
     $(this).closest("tr").remove();
@@ -70,7 +70,7 @@ function checkMonthly(cost) {
         $("#monthlyCost").css("color","black");
     }
 
-    $("#monthlyCost").text("Monthly Total: $" + cost / 12);
+    $("#monthlyCost").text("Monthly Total: " + accounting.formatMoney(cost / 12));
 }
 
 function borderToWhite() {
