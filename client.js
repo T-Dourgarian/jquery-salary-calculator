@@ -17,21 +17,17 @@ function addEmployee() {
     let titleEl = $("#titleInput");
     let salaryEl = $("#salaryInput");
 
-    checkInputs(firstEl,lastEl,idEl,titleEl,salaryEl);
+    checkInputs(firstEl, lastEl, idEl, titleEl, salaryEl);
 
-    //if (!firstEl.val() &&
-    //    !lastEl.val() &&
-    //    !idEl.val() &&
-    //    !titleEl.val() &&
-    //    !salaryEl.val()
-    //) {
-        try {
-            yearlyCost += Number(salaryEl.val());
-        } catch(error) {
-
-        }
+    if (firstEl.val() &&
+        lastEl.val() &&
+        idEl.val() &&
+        titleEl.val() &&
+        salaryEl.val()
+    ) {
+        yearlyCost += Number(salaryEl.val());
         switchRowColor();
-        
+
         $("table").append(
             `<tr style="background-color:${rowColor}">
             <td>${firstEl.val()}</td>
@@ -43,12 +39,12 @@ function addEmployee() {
         </tr>`
         );
 
-        // firstEl.val("");
-        // lastEl.val("");
-        // idEl.val("");
-        // titleEl.val("");
-        // salaryEl.val("");
-    //}
+        firstEl.val("");
+        lastEl.val("");
+        idEl.val("");
+        titleEl.val("");
+        salaryEl.val("");
+    }
 
     checkMonthly(yearlyCost);
 }
@@ -64,10 +60,10 @@ function deleteEmployee() {
 function checkMonthly(cost) {
     if (cost / 12 >= 20000) {
         $("#monthlyCost").css("background-color", "red");
-        $("#monthlyCost").css("color","white");
+        $("#monthlyCost").css("color", "white");
     } else {
         $("#monthlyCost").css("background", "transparent");
-        $("#monthlyCost").css("color","black");
+        $("#monthlyCost").css("color", "black");
     }
 
     $("#monthlyCost").text("Monthly Total: " + accounting.formatMoney(cost / 12));
@@ -82,19 +78,19 @@ function borderToWhite() {
 }
 
 
-function checkInputs(firstEl,lastEl,idEl,titleEl,salaryEl) {
-    let inputArray = [firstEl,lastEl,idEl,titleEl,salaryEl];
+function checkInputs(firstEl, lastEl, idEl, titleEl, salaryEl) {
+    let inputArray = [firstEl, lastEl, idEl, titleEl, salaryEl];
 
     for (el of inputArray) {
         if (!el.val()) {
-            el.css("border-color","red");
+            el.css("border-color", "red");
         } else {
-            el.css("border-color","rgba(153,236,255,1)");
+            el.css("border-color", "rgba(153,236,255,1)");
         }
     }
 }
 
 function switchRowColor() {
-    if (rowColor == "white") rowColor ="#ebebeb";
+    if (rowColor == "white") rowColor = "#ebebeb";
     else rowColor = "white";
 }

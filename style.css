@@ -85,6 +85,10 @@ img {
     background-color: transparent;
 }
 
+span {
+    color:white;
+}
+
 .deleteTd {
     padding: 0%;
     text-align: center;
