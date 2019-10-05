@@ -1,36 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="jquery.js" ></script>
-    <script src="client.js" ></script>
+    <script src="jquery.js"></script>
+    <script src="client.js"></script>
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Employee Table</title>
 </head>
+
 <body>
-    <input type="text" placeholder="Firstname" id="firstInput">
-    <input type="text" placeholder="Lastname" id="lastInput">
-    <input type="text" placeholder="ID" id="idInput">
-    <input type="text" placeholder="Job Title" id="titleInput">
-    <input type="number" placeholder="Annual Salary" id="salaryInput">
 
-    <button id="submitBtn">Submit</button>
+    <div id="main">
+        <div class="inputDiv">
+            <input type="text" placeholder="Firstname" id="firstInput">
+            <input type="text" placeholder="Lastname" id="lastInput">
+            <input type="text" placeholder="ID" id="idInput">
+            <input type="text" placeholder="Job Title" id="titleInput">
+            <input type="number" placeholder="Annual Salary" id="salaryInput">
 
-    <table>
-        <tr>
-            <th>First name</th>
-            <th>Last name</th>
-            <th>ID number</th>
-            <th>Job Title</th>
-            <th>Annual Salary</th>
-            <th>Delete</th>
-        </tr>
-    </table>
+            <button id="submitBtn">Submit</button>
+        </div>
 
+        <table>
+            <tr id="tableNav">
+                <th>First name</th>
+                <th>Last name</th>
+                <th>ID number</th>
+                <th>Job Title</th>
+                <th>Annual Salary</th>
+                <th>Delete</th>
+            </tr>
+        </table>
 
-    <span id="monthlyCost"></span>
-
+        <br>
+        <span id="monthlyCost">Monthly Cost: $</span>
+    </div>
 </body>
+
 </html>

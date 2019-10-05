@@ -1,0 +1,87 @@
+body {
+    background: linear-gradient(180deg, rgba(153,236,255,1) 50%, rgba(255,255,255,1) 100%) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.inputDiv {
+    background-color: #368a99;
+    opacity: .6;
+    padding:1%;
+    text-align: center;
+    border: 1px solid black;
+}
+
+input {
+    color:white;
+    margin: 4px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: rgba(153,236,255,1);
+    padding: 4px;
+    background: transparent;
+}
+
+#submitBtn {
+    background-color: rgb(78, 206, 78);
+    border-color: rgb(78, 206, 78);
+    padding:5px;
+    width: 9%;
+    color:white;
+}
+
+button {
+    color:white;
+    background-color: rgb(214, 44, 44);
+    border-radius: 10px;
+}
+
+#tableNav {
+    background-color: #368a99; 
+    opacity: .6;
+    color: white;
+    font-size: 15px;
+    height: 45px;
+}
+
+table {
+    margin-top: 10px;
+}
+
+table,tr {
+    width:60%;
+    margin-left: 17%;
+    border:1px solid black;
+    border-collapse: collapse;
+    color: black;
+    font-family:sans-serif;
+
+}
+
+td {
+    border:1px solid black;
+    text-align: center;
+    font-family:sans-serif;
+}
+
+::placeholder {
+    color: white;
+  }
+
+#monthlyCost {
+    color:black;
+    background: transparent;
+    margin: 17%;
+    font-family: sans-serif;
+    
+}
+
+#main {
+    background-color: #ffffff;
+    width:75%;
+    height:500px;
+    margin-left: 12%;
+    padding-bottom: 200px;
+}

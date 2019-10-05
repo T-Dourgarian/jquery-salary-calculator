@@ -3,6 +3,7 @@ let yearlyCost = 0;
 function readyNow() {
     $("#submitBtn").on("click",addEmployee);
     $("tbody").on("click",".deleteBtn",deleteEmployee);
+    $("body").on("mouseover","#submitBtn",borderToWhite);
 }
 
 
@@ -40,8 +41,16 @@ function checkMonthly(cost) {
     if(cost/12 >= 20000) {
         $("#monthlyCost").css("background-color","red");
     } else {
-        $("#monthlyCost").css("background-color","white");
+        $("#monthlyCost").css("background","transparent");
     }
 
     $("#monthlyCost").text("Monthly Total: $" + cost/12);
+}
+
+function borderToWhite() {
+    $("#submitBtn").css("border-color","white");
+
+    $("#submitBtn").on("mouseout",function() {
+        $(this).css("border-color"," rgb(78, 206, 78)");
+    });
 }
