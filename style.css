@@ -64,9 +64,8 @@ table,tr {
 }
 
 td {
-    border:1px solid #a3a3a3;
     font-size: 15px;
-    font-family: Arial;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     height:30px;
     color:#7d7c7c;
     padding-top: 7px;

@@ -50,7 +50,6 @@ function addEmployee() {
 }
 
 function deleteEmployee() {
-    let employeeSalary = accounting.unformat($(this).closest("tr").find("#annualSalary").text());
     
     $(this).parent().parent().nextAll().each(function() {
         if ($(this).css("background-color") == "rgb(255, 255, 255)") {
@@ -60,13 +59,13 @@ function deleteEmployee() {
         }
     });
 
+    let employeeSalary = accounting.unformat($(this).closest("tr").find("#annualSalary").text());
     yearlyCost -= employeeSalary;
     checkMonthly(yearlyCost)
     $(this).closest("tr").remove();
 
 }
-// light grey rgb(224, 224, 224)
-// white rgb(255, 255, 255)
+
 
 function checkMonthly(cost) {
     if (cost / 12 >= 20000) {
