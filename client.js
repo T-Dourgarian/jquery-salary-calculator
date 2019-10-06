@@ -19,17 +19,17 @@ function addEmployee() {
 
     checkInputs(firstEl, lastEl, idEl, titleEl, salaryEl);
 
-    if (firstEl.val() &&
-        lastEl.val() &&
-        idEl.val() &&
-        titleEl.val() &&
-        salaryEl.val()
-    ) {
+    // if (firstEl.val() &&
+    //     lastEl.val() &&
+    //     idEl.val() &&
+    //     titleEl.val() &&
+    //     salaryEl.val()
+    // ) {
         yearlyCost += Number(salaryEl.val());
         switchRowColor();
 
         $("table").append(
-            `<tr style="background-color:${rowColor}">
+            `<tr class="notHeader" style="background-color:${rowColor}">
             <td>${firstEl.val()}</td>
             <td>${lastEl.val()}</td>
             <td>${idEl.val()}</td>
@@ -39,23 +39,34 @@ function addEmployee() {
         </tr>`
         );
 
-        firstEl.val("");
-        lastEl.val("");
-        idEl.val("");
-        titleEl.val("");
-        salaryEl.val("");
-    }
+        // firstEl.val("");
+        // lastEl.val("");
+        // idEl.val("");
+        // titleEl.val("");
+        // salaryEl.val("");
+    //}
 
     checkMonthly(yearlyCost);
 }
 
 function deleteEmployee() {
     let employeeSalary = accounting.unformat($(this).closest("tr").find("#annualSalary").text());
-    console.log(employeeSalary);
+    
+    $(this).parent().parent().nextAll().each(function() {
+        if ($(this).css("background-color") == "rgb(255, 255, 255)") {
+            $(this).css("background-color","rgb(224, 224, 224)");
+        } else {
+            $(this).css("background-color","rgb(255, 255, 255)");
+        }
+    });
+
     yearlyCost -= employeeSalary;
     checkMonthly(yearlyCost)
     $(this).closest("tr").remove();
+
 }
+// light grey rgb(224, 224, 224)
+// white rgb(255, 255, 255)
 
 function checkMonthly(cost) {
     if (cost / 12 >= 20000) {
@@ -71,7 +82,6 @@ function checkMonthly(cost) {
 
 function borderToWhite() {
     $("#submitBtn").css("border-color", "white");
-
     $("#submitBtn").on("mouseout", function () {
         $(this).css("border-color", " rgb(78, 206, 78)");
     });
@@ -91,6 +101,6 @@ function checkInputs(firstEl, lastEl, idEl, titleEl, salaryEl) {
 }
 
 function switchRowColor() {
-    if (rowColor == "white") rowColor = "#ebebeb";
+    if (rowColor == "white") rowColor = "rgb(224, 224, 224)";
     else rowColor = "white";
 }
